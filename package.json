@@ -1,0 +1,90 @@
+{
+	"name": "yenisey",
+	"displayName": "yenisey",
+	"description": "My personal settings",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:tripleKeypressCloseEditor"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [{
+			"command": "tripleKeypressCloseEditor",
+			"title": "Smart close current tab"
+		}],
+		"keybindings": [
+			{
+				"command": "tripleKeypressCloseEditor",
+				"key": "escape",
+				"mac": "escape",
+				"when": "!editorHasSelection && !editorHasMultipleSelections"
+			},
+
+			{
+				"key": "ctrl+shift+down",
+				"command": "cursorColumnSelectDown",
+				"when": "textInputFocus"
+			},
+			{
+				"key": "ctrl+shift+left",
+				"command": "cursorColumnSelectLeft",
+				"when": "textInputFocus"
+			},
+			{
+				"key": "ctrl+shift+pagedown",
+				"command": "cursorColumnSelectPageDown",
+				"when": "textInputFocus"
+			},
+			{
+				"key": "ctrl+shift+pageup",
+				"command": "cursorColumnSelectPageUp",
+				"when": "textInputFocus"
+			},
+			{
+				"key": "ctrl+shift+right",
+				"command": "cursorColumnSelectRight",
+				"when": "textInputFocus"
+			},
+			{
+				"key": "ctrl+shift+up",
+				"command": "cursorColumnSelectUp",
+				"when": "textInputFocus"
+			},
+			{
+				"key": "ctrl+shift+c",
+				"command": "workbench.action.terminal.openNativeConsole",
+				"when": "!terminalFocus"
+			},
+			{
+				"key": "ctrl+a",
+				"command": "editor.action.changeAll",
+				"when": "editorTextFocus && editorHasSelection"
+			},
+			{
+				"key": "ctrl+f2",
+				"command": "-editor.action.changeAll",
+				"when": "editorTextFocus && !editorReadonly"
+			}
+		]
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"eslint": "^5.13.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.2.0"
+	}
+}

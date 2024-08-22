@@ -2,21 +2,22 @@
 	"name": "yenisey",
 	"displayName": "yenisey",
 	"description": "My personal settings",
-	"version": "0.0.1",
+	"publisher": "yenisey",
+	"version": "0.5.1",
 	"engines": {
-		"vscode": "^1.38.0"
+		"vscode": "^1.92.0"
 	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:tripleKeypressCloseEditor"
-	],
+	"categories": ["Other"],
+	"activationEvents": [],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [{
 			"command": "tripleKeypressCloseEditor",
 			"title": "Smart close current tab"
+		},
+		{
+			"command": "toggleTextCase",
+			"title": "Toggle UPPER/lower case for selection"
 		}],
 		"keybindings": [
 			{
@@ -70,6 +71,11 @@
 				"key": "ctrl+f2",
 				"command": "-editor.action.changeAll",
 				"when": "editorTextFocus && !editorReadonly"
+			},
+			{
+				"key": "shift+f3",
+				"command": "toggleTextCase",
+				"when": "editorTextFocus && editorHasSelection"
 			}
 		]
 	},
